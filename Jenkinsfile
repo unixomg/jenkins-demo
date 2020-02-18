@@ -1,5 +1,5 @@
 node('k8s-jnlp') {
-    stage('Prepare') {
+    stage('scm') {
         echo "1.Prepare Stage"
         checkout scm
         script {
@@ -19,7 +19,7 @@ node('k8s-jnlp') {
     stage('Push') {
         echo "4.Push Docker Image Stage"
         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
-            sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
+            sh "docker login -u ${dockerhubUser} -p ${dockerhubPassword}"
             sh "docker push unixomg/jenkins-demo:${build_tag}"
         }
     }
