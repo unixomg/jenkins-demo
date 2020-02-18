@@ -18,4 +18,4 @@ spec:
         name: jenkins-demo
         env:
         - name: branch
-          value: <BUILD_TAG>
+          value: <BRANCH_NAME>
