@@ -1,5 +1,5 @@
 node('k8s-jnlp') {
-    stage('scm') {
+    stage('Prepare') {
         echo "1.Prepare Stage"
         checkout scm
         script {
